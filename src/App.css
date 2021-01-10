@@ -1,9 +1,13 @@
 .App {
   text-align: center;
-  background-color: #262A41;
-  width: 100vw;
+  background-color:#262A41;
+  width: 97vw;
   height: auto;
   min-height: 100vh;
+  display: flex;
+  padding: 10px ;
+  color: aliceblue;
+  justify-content: center;
 }
 
 
