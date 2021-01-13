@@ -99,10 +99,10 @@ export const InputForCheckButton = styled.input`
     width: 0;
     height: 0;
     :checked + ${Slidder} {
-  background-color: #2196F3;
+  background-color: #30BBB5;
 }
     :focus + ${Slidder} {
-        box-shadow: 0 0 1px #2196F3;
+        box-shadow: 0 0 1px #30BBB5;
 }
 :checked + ${Slidder}:before {
     -webkit-transform: translateX(100%);

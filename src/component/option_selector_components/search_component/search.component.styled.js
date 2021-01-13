@@ -25,7 +25,7 @@ export const GroupElement = styled.div`
 `;
 
 export const Input = styled.input`
-background: #3C3F54 0% 0% no-repeat padding-box;
+    background: #3C3F54 0% 0% no-repeat padding-box;
     width: 80% ;
     height: 90% ;
     border: 1px solid #3C3F54;
@@ -37,9 +37,9 @@ background: #3C3F54 0% 0% no-repeat padding-box;
 `;
 
 export const SearchButtton = styled.button`
-color: #fff;
-outline: none ;
-background: #3C3F54 0% 0% no-repeat padding-box;
+    color: #fff;
+    outline: none ;
+    background: #3C3F54 0% 0% no-repeat padding-box;
     width: 20% ;
     height: 90% ;
     border: 1px solid #3C3F54;

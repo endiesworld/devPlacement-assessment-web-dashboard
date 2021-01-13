@@ -3,7 +3,7 @@ import styled from "styled-components" ;
 export const UserDetailsParent = styled.div`
     width: 450px;
     height: 105px;
-    background: #FCFCFF 0% 0% no-repeat padding-box;
+    background: #FCFCFF ;
     box-shadow: 10px 10px 40px #0000000D;
     border-radius: 18px;
     opacity: 1 ;
