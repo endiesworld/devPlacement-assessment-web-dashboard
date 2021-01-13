@@ -1,7 +1,5 @@
 import styled from "styled-components" ;
-//import usersicon from "../../../assets/usersSolid.svg" ;
-// import maleUsers from "../../../assets/male-solid.svg" ;
-// import femaleUsers from "../../../assets/female-solid.svg" ;
+
 
 export const UserSelectorParent = styled.div`
     flex: 2 ;

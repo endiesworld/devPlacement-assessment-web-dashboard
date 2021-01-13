@@ -12,18 +12,19 @@ export const WelcomeParent = styled.div`
 
 export const GreetingsHolder = styled.div`
     display: flex ;
+    justify-content: center ;
 `;
 export const Greetings = styled.p`
-    font-weight: 100 ;
-    font-size: 1.5em ;
+
+    font-size: 1.4em ;
     color: #f7f0fb ;
 `;
 export const AdminName = styled.h2`
-    font-weight: 400 ;
+
 `;
 
 export const WelcomeMessage = styled.p`
-    font-weight: 100 ;
+    margin-top: 10px ;
     opacity: 0.5 ;
-    font-size: 0.8em ;
+    font-size: 0.7em ;
 `;

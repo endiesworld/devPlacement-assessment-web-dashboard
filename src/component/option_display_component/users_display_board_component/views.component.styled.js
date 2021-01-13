@@ -7,4 +7,5 @@ border: 1px solid #707070;
 display: flex ;
 flex-direction: column ;
 padding: 20px ;
+overflow: auto ;
 `;
