@@ -9,13 +9,18 @@ export const ParentDiv = styled.div`
     display: flex ;
     flex-direction: column ;
     padding: 20px ;
+
 `;
 
-export const BackNavigatorHolder = styled.div`
+export const BackNavigatorHolder = styled.button`
     height: 20px;
     display: flex ;
     align-items: center ;
-    margin-left: 20px ;
+    margin-left: 25px ;
+    outline: none ;
+    width: 18% ;
+    background: #FCFCFF ;
+    border: 0;
 `;
 
 export const BackArrow = styled.span`

@@ -1,10 +1,12 @@
 import React from 'react' ;
+import { connect } from "react-redux";
+
 import {FilterParent, GreetingsHolder, UserTypeLabel, FilterLabel} from "./filter.component.styled" ;
 import FormComponent  from "./filterForm_component/filter_form.components" ;
 
-function FilterComponent({filterSex}) {
+function FilterComponent({userType}) {
     let filter ;
-    (filterSex) ? filter = filterSex : filter = "User Filter" ;
+    (userType) ? filter = userType : filter = "All Users" ;
     return (
         <FilterParent>
             <UserTypeLabel>{filter}</UserTypeLabel>
@@ -16,4 +18,11 @@ function FilterComponent({filterSex}) {
     )
 }
 
-export default FilterComponent
+const mapStateToProps = state => {
+    const {userType } = state.userType
+    return {
+        userType 
+    }
+}
+
+export default connect(mapStateToProps) (FilterComponent)

@@ -18,13 +18,14 @@ export const GroupElement = styled.div`
     border-radius: 35px;
     margin-right: 10px ;
     
+    
 `;
 
 export const Input = styled.input`
     background: #0000001A ;
     border: 0;
     width: 80% ;
-    height: 90% ;
+    height: 92% ;
     border-top-right-radius: 35px;
     border-bottom-right-radius: 35px;
     outline: none ;

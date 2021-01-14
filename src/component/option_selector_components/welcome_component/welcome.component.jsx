@@ -8,8 +8,8 @@ function WelcomeComponent({name}) {
     return (
         <WelcomeParent>
             <GreetingsHolder>
-                <Greetings> {"Hello,  " } </Greetings>
-                <AdminName>{adminName}</AdminName>
+                <Greetings> Hello,+ " "   </Greetings>
+                <AdminName>{" " + adminName}</AdminName>
             </GreetingsHolder>
             <WelcomeMessage>
                 welcome to your dashboard, kindly sort through the user base.
