@@ -1,5 +1,6 @@
 import React from 'react' ;
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+
 
 import {UserSelectorParent,  UserSelectorHolder, SelectorMessage,
     UserTypeHolder, AllUsers, MaleUsersSelector, FemaleUsersSelector,
@@ -10,34 +11,35 @@ import {ReactComponent as FemaleUsers} from "../../../assets/female-solid.svg" ;
 
 import {getAllUsers, getFemaleUsers, getMaleUsers} from "../../../redux/actions/user_type_action" ;
 
-function UserSelector({showAllUsers, showFemaleUsers, showMaleUsers}){
+function UserSelector(){    
+    const dispatch = useDispatch() ;
     return (
         <UserSelectorParent>
             <SelectorMessage>Show Users</SelectorMessage>
             <UserSelectorHolder>
                 <UserTypeHolder>
-                    <AllUsers onClick= {()=>showAllUsers()}><Users style ={{width: "50%", height: "50%"}} /></AllUsers>
-                    <UserSelectorMessage>All Useers</UserSelectorMessage>
+                    <AllUsers onClick= {()=>dispatch(getAllUsers())}><Users style ={{width: "50%", height: "50%"}} /></AllUsers>
+                    <UserSelectorMessage>All Users</UserSelectorMessage>
                 </UserTypeHolder>
                 <UserTypeHolder>
-                    <MaleUsersSelector onClick= {()=>showMaleUsers()}><MaleUsers style ={{width: "50%", height: "50%"}} /></MaleUsersSelector>
-                    <UserSelectorMessage>Male Useers</UserSelectorMessage>
+                    <MaleUsersSelector onClick= {()=>dispatch(getMaleUsers())}><MaleUsers style ={{width: "50%", height: "50%"}} /></MaleUsersSelector>
+                    <UserSelectorMessage>Male Users</UserSelectorMessage>
                 </UserTypeHolder>
                 <UserTypeHolder>
-                    <FemaleUsersSelector onClick= {()=>showFemaleUsers()}><FemaleUsers style ={{width: "50%", height: "50%"}} /></FemaleUsersSelector>
-                    <UserSelectorMessage>Female Useers</UserSelectorMessage>
+                    <FemaleUsersSelector onClick= {()=>dispatch(getFemaleUsers())}><FemaleUsers style ={{width: "50%", height: "50%"}} /></FemaleUsersSelector>
+                    <UserSelectorMessage>Female Users</UserSelectorMessage>
                 </UserTypeHolder>
             </UserSelectorHolder>
         </UserSelectorParent>
     )
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        showAllUsers: () => dispatch(getAllUsers()) ,
-        showMaleUsers: () => dispatch(getMaleUsers()),
-        showFemaleUsers: () => dispatch(getFemaleUsers())
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         showAllUsers: () => dispatch(getAllUsers()) ,
+//         showMaleUsers: () => dispatch(getMaleUsers()),
+//         showFemaleUsers: () => dispatch(getFemaleUsers())
+//     }
+// }
 
-export default connect(null, mapDispatchToProps) (UserSelector) ;
+export default UserSelector ;

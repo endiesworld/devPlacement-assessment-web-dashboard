@@ -6,9 +6,11 @@
  import { combineReducers } from "redux";
 
  import userReducer from "./reducers/user_type_reducer";
+ import viewReducer from "./reducers/view_type_reducer";
 
  const rootReducer = combineReducers({
   userType: userReducer,
+  viewType: viewReducer
 });
 
 export default  rootReducer;

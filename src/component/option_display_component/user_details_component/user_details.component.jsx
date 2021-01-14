@@ -1,4 +1,7 @@
 import React from 'react' ;
+import { useDispatch } from "react-redux";
+
+import {getExpandedView} from "../../../redux/actions/view_type_action" ;
 import {ReactComponent as Phone} from "../../../assets/phone-call.svg" ;
 import {ReactComponent as Message} from "../../../assets/mail.svg" ;
 import {ReactComponent as Arrow} from "../../../assets/arrow-right.svg" ;
@@ -7,6 +10,7 @@ import {UserDetailsParent, ImageHolder, DetailsHolder, MoreDetails,
             Details, MoreDeatilsButton} from "./user_details.component.style" ;
 
 function UserDetailsComponent({userDetails}) {
+    const dispatch = useDispatch() ;
     let defaultValue = {
         name: "Shalum Chioma" ,
         address: "123, kilode, Lagos" ,
@@ -34,7 +38,9 @@ function UserDetailsComponent({userDetails}) {
                     <Details>{phoneNumber}</Details>
                 </ContactDetails>
             </DetailsHolder>
-            <MoreDetails><MoreDeatilsButton><Arrow /></MoreDeatilsButton></MoreDetails>
+            <MoreDetails><MoreDeatilsButton onClick = {() => dispatch(getExpandedView())}>
+                <Arrow />
+            </MoreDeatilsButton></MoreDetails>
         </UserDetailsParent>
     )
 }

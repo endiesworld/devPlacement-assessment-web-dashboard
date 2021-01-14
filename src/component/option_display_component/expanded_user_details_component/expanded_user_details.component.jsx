@@ -1,5 +1,8 @@
 
 import React from 'react' ;
+import { useDispatch } from "react-redux";
+
+import {getNormalView} from "../../../redux/actions/view_type_action" ;
 import {ReactComponent as Arrow} from "../../../assets/arrow-left.svg" ;
 import {ReactComponent as Phone} from "../../../assets/phone-call.svg" ;
 import {ReactComponent as Iphone} from "../../../assets/iphone.svg" ;
@@ -11,7 +14,7 @@ import {ParentDiv, BackNavigatorHolder, BackArrow, Result,
     DateJoinedHolder, DateJoined, PhoneDetails, IconHolder, Details} from "./expanded_user_details.style" ;
 
 function ExpandedUderDetailsComponent({userDetails}) {
-    
+    const dispatch = useDispatch() ;
     let defaultValue = {
         name: "Shalum Chioma" ,
         age: "25",
@@ -33,7 +36,7 @@ function ExpandedUderDetailsComponent({userDetails}) {
      ({name, address, email, phoneNumber, age, dateJoined, mobile} = defaultValue  ) ;
     return (
         <ParentDiv>
-            <BackNavigatorHolder>
+            <BackNavigatorHolder onClick = {()=>dispatch(getNormalView())}>
                 <BackArrow><Arrow /></BackArrow>
                 <Result>Result</Result>
             </BackNavigatorHolder>

@@ -1,15 +1,14 @@
 import React from 'react' ;
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import {FilterParent, GreetingsHolder, UserTypeLabel, FilterLabel} from "./filter.component.styled" ;
 import FormComponent  from "./filterForm_component/filter_form.components" ;
 
-function FilterComponent({userType}) {
-    let filter ;
-    (userType) ? filter = userType : filter = "All Users" ;
+function FilterComponent() {
+    const {userType} = useSelector(state => state.userType)
     return (
         <FilterParent>
-            <UserTypeLabel>{filter}</UserTypeLabel>
+            <UserTypeLabel>{userType}</UserTypeLabel>
             <FilterLabel>Filter by</FilterLabel>
             <GreetingsHolder>
                 <FormComponent />
@@ -18,11 +17,15 @@ function FilterComponent({userType}) {
     )
 }
 
-const mapStateToProps = state => {
-    const {userType } = state.userType
-    return {
-        userType 
-    }
-}
+// const mapStateToProps = state => {
+//     /**
+//      * usertype as a variable is used to get the exact data needed from the object returned by state.userType
+//      * while the userType in state.userType is used to select the userTypeReducer from the root Reducer
+//      **/ 
+//     const {userType } = state.userType
+//     return {
+//         userType 
+//     }
+// }
 
-export default connect(mapStateToProps) (FilterComponent)
+export default FilterComponent ;
