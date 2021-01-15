@@ -47,13 +47,18 @@ export const NameHolder = styled.h1`
     margin-bottom: 10px ;
 ` ;
 
-export const AddressHolder = styled.h2`
-    font-size: 0.8em ;
+
+export const AddressHolder = styled.div`
+    width: 100% ;
     margin-bottom: 10px ;
+    display: flex ;
+` ;
+
+export const Address = styled.h2`
+    font-size: 0.8em ;
     font-weight: 500;
     font-style: italic ;
     opacity: 0.69;
-    
 ` ;
 
 export const ContactDetails = styled.div`

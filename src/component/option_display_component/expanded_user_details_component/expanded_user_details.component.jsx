@@ -17,8 +17,10 @@ import {ParentDiv, BackNavigatorHolder, BackArrow, Result,
 function ExpandedUderDetailsComponent() {
     const dispatch = useDispatch() ;
     const {viewMoredetails} = useSelector(state => state.viewMoredetails) ;
-  let {cell, email, name:{first, last}, phone, picture:{large},
-        dob:{age}, location:{street:{number , name}, state, country}, registered:{date}} = viewMoredetails 
+  let {cell, email, firstName, lastName, phone, 
+            picture, age, streetNumber,
+             streetName, state, country, dateJoined} = viewMoredetails ;
+  
     return (
         <ParentDiv>
             <BackNavigatorHolder onClick = {()=>dispatch(getNormalView())}>
@@ -26,21 +28,21 @@ function ExpandedUderDetailsComponent() {
                 <Result>Result</Result>
             </BackNavigatorHolder>
             <UderDetails>
-                <ImageHolder url = {large} />
+                <ImageHolder url = {picture} />
                 <DetailsHolder>
                     <NameAndAgeHolder>
-                        <NameHolder>{first}, {" "} {last}</NameHolder>
+                        <NameHolder>{firstName}, {" "} {lastName}</NameHolder>
                         <AgeHolder>{age}</AgeHolder>
                     </NameAndAgeHolder>
                     <AddressHolder>
-                        <AddressDetails>{number},{" "} {name},{" "} {state},{" "} {country}</AddressDetails>
+                        <AddressDetails>{streetNumber},{" "} {streetName},{" "} {state},{" "} {country}</AddressDetails>
                     </AddressHolder>
                      <EmailDetailsHolder>
                         <IconHolder><Message /></IconHolder>
                         <Details>{email}</Details>
                     </EmailDetailsHolder>
                     <DateJoinedHolder>
-                        <DateJoined> Joined:  {date}</DateJoined>
+                        <DateJoined> Joined:  {dateJoined}</DateJoined>
                     </DateJoinedHolder>
                     <PhoneDetails>
                         <IconHolder><Phone /></IconHolder>

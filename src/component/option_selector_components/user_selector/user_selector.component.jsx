@@ -9,7 +9,6 @@ import {ReactComponent as Users} from "../../../assets/usersSolid.svg" ;
 import {ReactComponent as MaleUsers} from "../../../assets/male-solid.svg" ;
 import {ReactComponent as FemaleUsers} from "../../../assets/female-solid.svg" ;  
 
-//import {getAllUsers, getFemaleUsers, getMaleUsers} from "../../../redux/actions/user_type_action" ;
 import { fetchFemaleUsers, fetchMaleUsers, fetchAllUsers} from "../../../redux/actions/users_actions" ;
 
 function UserSelector(){    
@@ -35,12 +34,5 @@ function UserSelector(){
     )
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         showAllUsers: () => dispatch(getAllUsers()) ,
-//         showMaleUsers: () => dispatch(getMaleUsers()),
-//         showFemaleUsers: () => dispatch(getFemaleUsers())
-//     }
-// }
 
 export default UserSelector ;

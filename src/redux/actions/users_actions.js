@@ -31,7 +31,7 @@ export const fetchUsersFailure = error => {
 export const fetchAllUsers = () => {
     return (dispatch) => {
         dispatch(fetchUsersRequest())
-        axios.get('https://randomuser.me/api/?results=5')
+        axios.get('https://randomuser.me/api/?results=10')
         .then(response => {
             const users = response.data
             dispatch(fetchUsersSuccess(users)) ;

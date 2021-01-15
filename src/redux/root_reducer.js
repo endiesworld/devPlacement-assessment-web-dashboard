@@ -8,6 +8,7 @@
  import userTypeReducer from "./reducers/user_type_reducer";
  import viewReducer from "./reducers/view_type_reducer";
  import userReducer from "./reducers/users_reducer" ;
+ import filterReducer from "./reducers/filter_reducer" ;
 
  const rootReducer = combineReducers({
   userType: userTypeReducer,
@@ -15,6 +16,9 @@
   viewMoredetails: viewReducer,
   users: userReducer,
   loading: userReducer,
+  showCountry: filterReducer ,
+  userCountry: filterReducer,
+  filter: filterReducer 
 });
 
 export default  rootReducer;

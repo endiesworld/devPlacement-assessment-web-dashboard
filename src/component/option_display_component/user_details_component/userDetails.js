@@ -24,6 +24,22 @@ medium: "https://randomuser.me/api/portraits/med/women/51.jpg",
 registered: {date: "2004-07-31T00:00:54.245Z", age: 17}
     } ]
 
+const exactDetailExtractor = (userDetails) =>{
+  let exactDetails = userDetails.map((user) => {
+    let {cell, email, name:{first, last}, phone, picture:{large},
+        dob:{age}, location:{street:{number , name}, state, country}, registered:{date}} = user ;
+        let firstName = first ;
+        let lastName = last ;
+        let streetNumber = number ;
+        let streetName = name ;
+        let picture = large ;
+        let dateJoined = date ;
+        return {cell, email, firstName, lastName, phone, 
+            picture, age, streetNumber, streetName, state, country, dateJoined}
+  })
+ return exactDetails ;
+}
+
 export const userDetailsExtractor = (data) => {
   const {results}  = data ;
   let newUserDetails ;
@@ -31,6 +47,14 @@ export const userDetailsExtractor = (data) => {
      newUserDetails = JSON.stringify(results, null, 2);
     newUserDetails = JSON.parse(newUserDetails) ;
   }
-  console.log ("data from API is", newUserDetails);
-    return (newUserDetails) ? newUserDetails : defaultValue  ;
+    return (newUserDetails) ? exactDetailExtractor(newUserDetails) :
+           exactDetailExtractor(defaultValue)  ;
 };
+
+export const countryExractor = (users) => {
+  let countries =  users.map((user) => {
+  let  {country} = user ;
+  return country ;
+  })
+ return countries ;
+}
