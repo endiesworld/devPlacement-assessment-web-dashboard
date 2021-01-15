@@ -1,47 +1,51 @@
 import React from 'react' ;
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 
 import {getExpandedView} from "../../../redux/actions/view_type_action" ;
 import {ReactComponent as Phone} from "../../../assets/phone-call.svg" ;
 import {ReactComponent as Message} from "../../../assets/mail.svg" ;
 import {ReactComponent as Arrow} from "../../../assets/arrow-right.svg" ;
-import {UserDetailsParent, ImageHolder, DetailsHolder, MoreDetails,
+import {ParentDiv,UserDetailsParent, ImageHolder, DetailsHolder, MoreDetails,
         NameHolder, AddressHolder, ContactDetails, IconHolder,
             Details, MoreDeatilsButton} from "./user_details.component.style" ;
+import {userDetailsExtractor} from "./userDetails" ;
 
-function UserDetailsComponent({userDetails}) {
+function UserDetailsComponent() {
+    const {loading} = useSelector(state => state.loading) ;
+    console.log(loading) ;
+    const {users} = useSelector(state => state.users) ;
+    
+    const displayUsers = userDetailsExtractor(users) ;
     const dispatch = useDispatch() ;
-    let defaultValue = {
-        name: "Shalum Chioma" ,
-        address: "123, kilode, Lagos" ,
-        email: "name@address.com",
-        phoneNumber: "+234-80123987456"
-    }
-    let name ;
-    let address ;
-    let email ;
-    let phoneNumber;
-
-    (userDetails) ? ({name, address, email, phoneNumber} = userDetails ) : 
-     ({name, address, email, phoneNumber} = defaultValue  ) ;
-
+    
     return (
-        <UserDetailsParent>
-            <ImageHolder />
+        <ParentDiv>
+        {
+                displayUsers.map((user, index) => (
+        <UserDetailsParent key= {index} >
+            <ImageHolder url = {user.picture.large}/>
             <DetailsHolder>
-                <NameHolder>{name}</NameHolder>
-                <AddressHolder>{address}</AddressHolder>
+                <NameHolder>{user.name.first }, { " "} {user.name.last}</NameHolder>
+                <AddressHolder>
+                    {user.location.street.number}, { " "}
+                    {user.location.street.name},
+                    { " "}
+                    {user.location.state},
+                </AddressHolder>
                 <ContactDetails>
                     <IconHolder><Message /></IconHolder>
-                    <Details>{email}</Details>
+                    <Details>{user.email}</Details>
                     <IconHolder><Phone /></IconHolder>
-                    <Details>{phoneNumber}</Details>
+                    <Details>{user.phone}</Details>
                 </ContactDetails>
             </DetailsHolder>
-            <MoreDetails><MoreDeatilsButton onClick = {() => dispatch(getExpandedView())}>
+            <MoreDetails><MoreDeatilsButton onClick = {() => dispatch(getExpandedView(user))}>
                 <Arrow />
             </MoreDeatilsButton></MoreDetails>
+
         </UserDetailsParent>
+                 ))} 
+    </ParentDiv>
     )
 }
 

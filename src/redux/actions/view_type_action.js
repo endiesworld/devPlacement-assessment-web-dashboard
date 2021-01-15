@@ -11,9 +11,10 @@ export const getNormalView = () => {
     }
 }
 
-export const getExpandedView = () => {
+export const getExpandedView = (user) => {
   return { 
-       type: view.expanded
+       type: view.expanded ,
+       payload: user
     }
 }
 

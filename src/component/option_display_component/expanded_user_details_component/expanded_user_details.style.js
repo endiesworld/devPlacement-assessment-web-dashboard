@@ -36,12 +36,6 @@ export const Result = styled.h2`
     opacity: 1;
 `;
 
-// export const FilterLabel = styled.p`
-//     flex: 1;
-//     margin-top: 5px ;
-//     font-size: 0.7em ;
-// `;
-
 export const UderDetails = styled.div`
     width: 100%;
     height: 280px;
@@ -57,8 +51,10 @@ export const ImageHolder = styled.div`
     flex: 1;
     height: 50% ;
     border-radius: 50% ;
-    background: transparent 0% 0% no-repeat padding-box;
-    /* background-image: */
+    background: transparent no-repeat padding-box;
+    background-image: url( ${(props) => props.url} ) ;
+    background-position: center; /* Center the image */
+    background-size: cover;
     border: 4px solid #75D6D1;
     opacity: 1;
     margin: 10px 10px 10px 0 ;

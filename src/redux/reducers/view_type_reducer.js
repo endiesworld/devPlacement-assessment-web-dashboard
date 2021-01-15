@@ -10,7 +10,9 @@ const initialState = {
             ...state, viewType: view.normal
         }
          case view.expanded : return{
-            ...state, viewType: view.expanded
+            ...state,
+             viewType: view.expanded,
+             viewMoredetails: action.payload
         }
         
         default: return state

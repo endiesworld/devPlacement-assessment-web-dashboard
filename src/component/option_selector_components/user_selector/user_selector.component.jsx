@@ -9,7 +9,8 @@ import {ReactComponent as Users} from "../../../assets/usersSolid.svg" ;
 import {ReactComponent as MaleUsers} from "../../../assets/male-solid.svg" ;
 import {ReactComponent as FemaleUsers} from "../../../assets/female-solid.svg" ;  
 
-import {getAllUsers, getFemaleUsers, getMaleUsers} from "../../../redux/actions/user_type_action" ;
+//import {getAllUsers, getFemaleUsers, getMaleUsers} from "../../../redux/actions/user_type_action" ;
+import { fetchFemaleUsers, fetchMaleUsers, fetchAllUsers} from "../../../redux/actions/users_actions" ;
 
 function UserSelector(){    
     const dispatch = useDispatch() ;
@@ -18,15 +19,15 @@ function UserSelector(){
             <SelectorMessage>Show Users</SelectorMessage>
             <UserSelectorHolder>
                 <UserTypeHolder>
-                    <AllUsers onClick= {()=>dispatch(getAllUsers())}><Users style ={{width: "50%", height: "50%"}} /></AllUsers>
+                    <AllUsers onClick= {()=>dispatch(fetchAllUsers())}><Users style ={{width: "50%", height: "50%"}} /></AllUsers>
                     <UserSelectorMessage>All Users</UserSelectorMessage>
                 </UserTypeHolder>
                 <UserTypeHolder>
-                    <MaleUsersSelector onClick= {()=>dispatch(getMaleUsers())}><MaleUsers style ={{width: "50%", height: "50%"}} /></MaleUsersSelector>
+                    <MaleUsersSelector onClick= {()=>dispatch(fetchMaleUsers())}><MaleUsers style ={{width: "50%", height: "50%"}} /></MaleUsersSelector>
                     <UserSelectorMessage>Male Users</UserSelectorMessage>
                 </UserTypeHolder>
                 <UserTypeHolder>
-                    <FemaleUsersSelector onClick= {()=>dispatch(getFemaleUsers())}><FemaleUsers style ={{width: "50%", height: "50%"}} /></FemaleUsersSelector>
+                    <FemaleUsersSelector onClick= {()=>dispatch(fetchFemaleUsers())}><FemaleUsers style ={{width: "50%", height: "50%"}} /></FemaleUsersSelector>
                     <UserSelectorMessage>Female Users</UserSelectorMessage>
                 </UserTypeHolder>
             </UserSelectorHolder>

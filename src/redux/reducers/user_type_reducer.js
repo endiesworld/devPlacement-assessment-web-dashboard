@@ -4,7 +4,7 @@ const initialState = {
     userType: "Select user Type"
 }
 
- const userReducer = (state = initialState , action) => {
+ const userTypeReducer = (state = initialState , action) => {
     switch(action.type){
         case users.all : return{
             ...state, userType: users.all
@@ -19,4 +19,4 @@ const initialState = {
     }
 }
 
-export default userReducer ;
+export default userTypeReducer ;

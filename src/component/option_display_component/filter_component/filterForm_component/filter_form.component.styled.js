@@ -4,7 +4,7 @@ export const Form = styled.form`
     display: flex ;
     align-items: center ;
     justify-content: flex-start ;
-    width: 450px;
+    width: 500px;
     height: 100% ;
     min-height: 45px
 `;
@@ -16,7 +16,7 @@ export const GroupElement = styled.div`
     flex-direction: row-reverse ;
     border: 0;
     border-radius: 35px;
-    margin-right: 10px ;
+    margin-right: 20px ;
     
     
 `;
@@ -54,7 +54,7 @@ export const Select = styled.select`
     border: 0;
     border-radius: 35px;
     opacity: 0.73 ;
-    margin-right: 10px ;
+    margin-right: 30px ;
 `;
 
 export const GroupElementSelector = styled.div`
